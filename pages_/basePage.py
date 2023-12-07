@@ -11,8 +11,8 @@ class BasePage():
     def _find_element(self, by, value):
         try:
             element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((by, value)))
-        except:
             return element
+        except:
             logger("Error: Element not Found")
             exit(1)
 
