@@ -12,8 +12,8 @@ class BasePage():
         try:
             element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((by, value)))
         except:
-            logger("Error: Element not Found")
             return element
+            logger("Error: Element not Found")
             exit(1)
 
     def _click(self, webElement):
