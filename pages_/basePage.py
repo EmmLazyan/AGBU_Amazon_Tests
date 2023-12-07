@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from common_.utilities_.customLogger import *
 
 
 class BasePage():
@@ -12,7 +13,7 @@ class BasePage():
             element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((by, value)))
             return element
         except:
-            print("Error: Element not Found")
+            logger("Error: Element not Found")
             exit(1)
 
     def _click(self, webElement):
@@ -24,6 +25,8 @@ class BasePage():
 
     def _get_title(self):
         return self.driver.title
+        logger("INFO", f"The title is found successfully: {self.driver.title}")
 
     def _get_element_text(self):
         return self.element.text
+        logger("INFO", f"Text is founded: {webElement.text}")
